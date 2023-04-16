@@ -2,10 +2,8 @@
   background-color: rgb(44, 44, 63);
   min-height: 100vh;
 }
-.app__title {
-  text-align: center;
-  padding-top: 1em;
-  margin-bottom: 1.5em;
+.app__hero {
+  margin-bottom: 2em;
 }
 .app__form {
   display: flex;
