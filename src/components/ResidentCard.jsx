@@ -1,30 +1,38 @@
-import useFetch from "../hooks/useFetch"
+import useFetch from "../hooks/useFetch";
+import "./styles/residentCard.css";
 
-const ResidentCard = ( {url} ) => {
-
-const resident = useFetch(url)
+const ResidentCard = ({ url }) => {
+  const [resident] = useFetch(url);
 
   return (
-   <article>
-        <header>
-            <img src={resident?.image} alt="" />
-            <div>
-                <div className="cirle">                
-                </div>
-                <span>{resident?.status}</span>
-            </div>
-        </header>
-        <section>
-            <h3>{resident?.name}</h3>
-            <hr />
-            <ul>
-                <li><span>Specie: </span>{resident?.species}</li>
-                <li><span>Origin: </span>{resident?.origin.name}</li>
-                <li><span>Episodes: </span>{resident?.episode.length}</li>
-            </ul>
-        </section>
-   </article>
-  )
-}
+    <article className="resident">
+      <header className="resident__header">
+        <img className="resident__avatar" src={resident?.image} alt="" />
+        <div className="resident__status">
+          <div className={`resident__status-circle ${resident?.status}`}></div>
+          <span className="resident__status-label">{resident?.status}</span>
+        </div>
+      </header>
+      <section className="resident__body">
+        <h3 className="resident__name">{resident?.name}</h3>
+        <hr className="resident__hr" />
+        <ul className="resident__list">
+          <li className="resident__item">
+            <span className="resident__label">Specie: </span>
+            <span className="resident__value">{resident?.species}</span>
+          </li>
+          <li className="resident__item">
+            <span className="resident__label">Origin: </span>
+            <span className="resident__value">{resident?.origin.name}</span>
+          </li>
+          <li className="resident__item">
+            <span className="resident__label">Episodes: </span>
+            <span className="resident__value">{resident?.episode.length}</span>
+          </li>
+        </ul>
+      </section>
+    </article>
+  );
+};
 
-export default ResidentCard
+export default ResidentCard;
